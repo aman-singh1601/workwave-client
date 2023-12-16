@@ -30,9 +30,9 @@ const Layout = props => {
 
   const toggleMenuCallback = () => {
     if (leftSideBarType === "default") {
-      dispatch(changeSidebarType("condensed", isMobile));
+      // dispatch(changeSidebarType("condensed", isMobile));
     } else if (leftSideBarType === "condensed") {
-      dispatch(changeSidebarType("default", isMobile));
+      // dispatch(changeSidebarType("default", isMobile));
     }
   };
 
@@ -131,7 +131,7 @@ const Layout = props => {
         <div className="main-content">{props.children}</div>
         <Footer />
       </div>
-      {showRightSidebar ? <RightSidebar /> : null}
+      {/* {showRightSidebar ? <RightSidebar /> : null} */}
     </React.Fragment>
   );
 };
