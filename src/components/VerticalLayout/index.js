@@ -28,13 +28,15 @@ const Layout = props => {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 
-  // const toggleMenuCallback = () => {
-  //   if (leftSideBarType === "default") {
-  //     dispatch(changeSidebarType("condensed", isMobile));
-  //   } else if (leftSideBarType === "condensed") {
-  //     dispatch(changeSidebarType("default", isMobile));
-  //   }
-  // };
+
+  const toggleMenuCallback = () => {
+    if (leftSideBarType === "default") {
+      // dispatch(changeSidebarType("condensed", isMobile));
+    } else if (leftSideBarType === "condensed") {
+      // dispatch(changeSidebarType("default", isMobile));
+    }
+  };
+
 
   //hides right sidebar on body click
   const hideRightbar = (event) => {
