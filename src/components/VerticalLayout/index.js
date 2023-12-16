@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
-import withRouter from '../Common/withRouter'
+import withRouter from "../Common/withRouter"
 
 
 // Layout Related Components
@@ -28,6 +28,7 @@ const Layout = props => {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 
+
   const toggleMenuCallback = () => {
     if (leftSideBarType === "default") {
       // dispatch(changeSidebarType("condensed", isMobile));
@@ -35,6 +36,7 @@ const Layout = props => {
       // dispatch(changeSidebarType("default", isMobile));
     }
   };
+
 
   //hides right sidebar on body click
   const hideRightbar = (event) => {
@@ -122,7 +124,7 @@ const Layout = props => {
       </div> */}
 
       <div id="layout-wrapper">
-        <Header toggleMenuCallback={toggleMenuCallback} />
+        <Header />
         <Sidebar
           theme={leftSideBarTheme}
           type={leftSideBarType}
