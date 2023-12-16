@@ -112,7 +112,7 @@ const Header = props => {
                 <input
                   type="text"
                   className="form-control"
-                  // placeholder={props.t("Search") + "..."}
+                  placeholder="Search..."
                 />
                 <span className="bx bx-search-alt" />
               </div>
