@@ -11,19 +11,36 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupUser } from '../../store/auth/signup/actions';
 
-const Login = (props) => {
+const SignIn = (props) => {
 
   const dispatch = useDispatch();
   const validation = useFormik({
     enableReinitialize: true,
     initialValues: {
+      firstName: '',
+      lastName: '',
       userName: '',
+      email: '',
       password: '',
+      confirmPassword: ''
     },
     validationSchema: Yup.object({
+      firstName: Yup.string().required("Please Enter Your First Name"),
+      lastName: Yup.string().required("Please Enter Your Last Name"),
       userName: Yup.string().required("Please Enter Your User Name"),
+      email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
+      confirmPassword: Yup.string().required("Please Confirm Your Password"),
     }),
+    validate: (values) => {
+      const errors = {};
+      var mailformat = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if ( !mailformat.test(values.email) ) {
+        errors.email = "Not a valid email!"
+      }
+
+      return errors;
+    },
     onSubmit: function (values) {
       if(values.confirmPassword != values.password) {
         
@@ -50,7 +67,7 @@ const Login = (props) => {
                <Col xs={7}>
                   <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
-                        <p> Login to continue to WorkWave.</p>
+                        <p>Sign in to continue to WorkWave.</p>
                   </div>
                 </Col>
                     <Col className="col-5 align-self-end">
@@ -68,6 +85,45 @@ const Login = (props) => {
                     return false;
                   }}
                  >
+                  <Row>
+                  <Col>
+                    <div className='mb-3 pt-3'>
+                    <Input
+                     name = 'firstName'
+                     className='form-control'
+                     placeholder='Enter FirstName'
+                     type='text'
+                     onChange={validation.handleChange}
+                     onBlur={validation.handleBlur}
+                     values = { validation.firstName || ''}
+                     invalid = {
+                      validation.touched.firstName && validation.errors.firstName ? true : false
+                     }
+                    />
+                    {validation.touched.firstName && validation.errors.firstName ? <FormFeedback type="invalid">{validation.errors.firstName}</FormFeedback> : null }
+                  </div>
+                  </Col>
+                  <Col>
+                  <div className='mb-3 pt-3'>
+                    <Input
+                     name='lastName'
+                     className='form-control'
+                     placeholder='Enter lastName'
+                     type='text'
+                     onChange={validation.handleChange}
+                     onBlur={validation.handleBlur}
+                     values = { validation.lastName || ''}
+                     invalid = {
+                      validation.touched.lastName && validation.errors.lastName? true : false
+                     }
+                    />
+                    {validation.touched.lastName && validation.errors.lastName ?
+                     <FormFeedback type="invalid">{validation.errors.lastName}</FormFeedback> :
+                      null }
+                  </div>
+                  </Col>
+                    </Row>
+                    
                   <div className='mb-3'>
                     <Label className='form-label'>User Name</Label>
                     <Input
@@ -87,6 +143,24 @@ const Login = (props) => {
                       null }
                   </div>
                   <div className='mb-3'>
+                    <Label className='form-label'>Email</Label>
+                    <Input
+                     name='email'
+                     className='form-control'
+                     placeholder='Enter email'
+                     type='text'
+                     onChange={validation.handleChange}
+                     onBlur={validation.handleBlur}
+                     values = { validation.email || ''}
+                     invalid = {
+                      validation.touched.email && validation.errors.email ? true : false
+                     }
+                    />
+                    {validation.touched.email && validation.errors.email ? 
+                      <FormFeedback type="invalid">{validation.errors.email}</FormFeedback> 
+                      : null }
+                  </div>
+                  <div className='mb-3'>
                     <Label className='form-label'>Password</Label>
                     <Input
                      name='password'
@@ -102,6 +176,24 @@ const Login = (props) => {
                     />
                     {validation.touched.password && validation.errors.password ?
                      <FormFeedback type="invalid">{validation.errors.password}</FormFeedback> :
+                      null }
+                  </div>
+                  <div className='mb-3'>
+                    <Label className='form-label'>Confirm Password</Label>
+                    <Input
+                     name='confirmPassword'
+                     className='form-control'
+                     placeholder='Confirm Password'
+                     type='password'
+                     onChange={validation.handleChange}
+                     onBlur={validation.handleBlur}
+                     values = { validation.confirmPassword || ''}
+                     invalid = {
+                      validation.touched.confirmPassword && validation.errors.confirmPassword? true : false
+                     }
+                    />
+                    {validation.touched.confirmPassword && validation.errors.confirmPassword?
+                     <FormFeedback type="invalid">{validation.errors.confirmPassword}</FormFeedback> :
                       null }
                   </div>
                   <button
@@ -122,5 +214,5 @@ const Login = (props) => {
   );
 };
 
-export default withRouter(Login);
+export default withRouter(SignIn);
 
