@@ -1,6 +1,6 @@
 import {
-    SIGNUP_SUCCESS,
-    SIGNUP_FAILURE,
+    AUTH_SUCCESS,
+    AUTH_FAILURE,
     SIGNUP_USER,
 } from "./actionTypes"
 
@@ -12,12 +12,12 @@ const INIT = {
 
 const signup = (state = INIT, action) => {
     switch (action.type) {
-        case SIGNUP_SUCCESS:
+        case AUTH_SUCCESS:
             state = {
                 ...state,
             }
             break;
-        case SIGNUP_FAILURE:
+        case AUTH_FAILURE:
                 state = { 
                     ...state, 
                 };
