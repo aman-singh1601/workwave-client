@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col, Card, CardBody, Form, Input, FormFeedback, Label } from 'reactstrap';
-
 import withRouter from '../../components/Common/withRouter';
 
 // import images
@@ -9,9 +8,12 @@ import profile from "../../assets/images/profile-img.png";
 //Formik validation
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { signupUser } from '../../store/auth/signup/actions';
 
 const Login = (props) => {
 
+  const dispatch = useDispatch();
   const validation = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -46,9 +48,12 @@ const Login = (props) => {
        console.log("password do not match");
        return;
       }
-      console.log(values);
+      // console.log(values);
+      dispatch(signupUser(values))
     }
   })
+
+  const {user} = useSelector((state) => state.signup)
 
   return (
     <React.Fragment>
@@ -210,3 +215,4 @@ const Login = (props) => {
 };
 
 export default withRouter(Login);
+

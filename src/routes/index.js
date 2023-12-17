@@ -8,7 +8,7 @@ const AuthProtectedRoutes = [
     {path:'/', component: <Dashboard/>}
 ]
 const publicRoutes = [
-    {path: "/login", component: <Login/>},
+    {path: "/signin", component: <Login/>},
 ]
 
 export {publicRoutes, AuthProtectedRoutes};
