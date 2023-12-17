@@ -1,11 +1,10 @@
 import { all, fork } from "redux-saga/effects";
-import authSaga from "./auth/login/saga";
-
+import signupSaga from "./auth/signup/saga"
 function* rootSaga() {
     yield all([
       //public
 
-      fork(authSaga),
+     fork(signupSaga),
      
     ]);
   }
