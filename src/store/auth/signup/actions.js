@@ -1,4 +1,4 @@
-import { SIGNUP_FAILURE, SIGNUP_SUCCESS, SIGNUP_USER } from "./actionTypes"
+import { AUTH_FAILURE, AUTH_SUCCESS, SIGNUP_USER } from "./actionTypes"
 
 export const signupUser = user => {
     return {
@@ -9,14 +9,14 @@ export const signupUser = user => {
 
   export const signupSuccess = user => {
     return {
-        type: SIGNUP_SUCCESS,
+        type: AUTH_SUCCESS,
         payload: user,
     }
   }
 
   export const signupFailure = error => {
    return{ 
-        type: SIGNUP_FAILURE,
+        type: AUTH_FAILURE,
         payload: error,
     }
   }
