@@ -11,7 +11,7 @@ function* signupSaga({payload: { user, history }}) {
 
     const response = yield call(postFakeRegister,user);
 
-    showNotification(response.message, 'success');
+    showNotification("SignUp Successful", 'success');
 
     localStorage.setItem("authUser", JSON.stringify(response.user_data));
     localStorage.setItem("token", response.token);
@@ -20,7 +20,7 @@ function* signupSaga({payload: { user, history }}) {
     history('/');
     
     } catch (error) {
-     showNotification("SignUp Unsuccessfull", "error");
+     showNotification("SignUp Unsuccessful", "error");
     }
   }
 
