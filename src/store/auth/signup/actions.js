@@ -1,9 +1,9 @@
 import { AUTH_FAILURE, AUTH_SUCCESS, SIGNUP_USER } from "./actionTypes"
 
-export const signupUser = user => {
+export const signupUser = (user, history) => {
     return {
         type: SIGNUP_USER,
-        payload: user,
+        payload: {user, history},
     }
   }
 

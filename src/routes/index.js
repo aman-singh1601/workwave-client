@@ -1,15 +1,15 @@
 //authenticaiton
 import Login from "../pages/Authentication/Login";
-import SignIn from "../pages/Authentication/SignIn";
+import SignUp from "../pages/Authentication/SignUp";
 
 //dashboard
 import Dashboard from "../pages/Dashboard/Dashboard";
 
 const AuthProtectedRoutes = [
-    {path:'/', component: <Dashboard/>}
+    {path:'/', component: <Dashboard/>},
 ]
 const publicRoutes = [
-    {path: "/signin", component: <SignIn/>},
+    {path: "/signup", component: <SignUp/>},
     {path: "/login", component: <Login/>},
 ]
 

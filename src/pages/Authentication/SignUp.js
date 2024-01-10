@@ -14,6 +14,7 @@ import { signupUser } from '../../store/auth/signup/actions';
 const SignIn = (props) => {
 
   const dispatch = useDispatch();
+
   const validation = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -50,10 +51,10 @@ const SignIn = (props) => {
       }
       // console.log(values);
       delete values.confirmPassword;
-      dispatch(signupUser(values))
+
+      dispatch(signupUser(values, props.router.navigate));
     }
   })
-
   const {user} = useSelector((state) => state.signup)
 
   return (
