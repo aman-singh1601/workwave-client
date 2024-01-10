@@ -19,7 +19,7 @@ const SignIn = (props) => {
     initialValues: {
       firstName: '',
       lastName: '',
-      userName: '',
+      username: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -27,7 +27,7 @@ const SignIn = (props) => {
     validationSchema: Yup.object({
       firstName: Yup.string().required("Please Enter Your First Name"),
       lastName: Yup.string().required("Please Enter Your Last Name"),
-      userName: Yup.string().required("Please Enter Your User Name"),
+      username: Yup.string().required("Please Enter Your User Name"),
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
       confirmPassword: Yup.string().required("Please Confirm Your Password"),
@@ -42,13 +42,14 @@ const SignIn = (props) => {
       return errors;
     },
     onSubmit: function (values) {
-      if(values.confirmPassword != values.password) {
+      if(values.confirmPassword !== values.password) {
         
         //toast to be added
        console.log("password do not match");
        return;
       }
       // console.log(values);
+      delete values.confirmPassword;
       dispatch(signupUser(values))
     }
   })
@@ -127,19 +128,19 @@ const SignIn = (props) => {
                   <div className='mb-3'>
                     <Label className='form-label'>User Name</Label>
                     <Input
-                     name='userName'
+                     name='username'
                      className='form-control'
                      placeholder='Enter userName'
                      type='text'
                      onChange={validation.handleChange}
                      onBlur={validation.handleBlur}
-                     values = { validation.userName || ''}
+                     values = { validation.username || ''}
                      invalid = {
-                      validation.touched.userName && validation.errors.userName? true : false
+                      validation.touched.username && validation.errors.username? true : false
                      }
                     />
-                    {validation.touched.userName && validation.errors.userName ?
-                     <FormFeedback type="invalid">{validation.errors.userName}</FormFeedback> :
+                    {validation.touched.username && validation.errors.username ?
+                     <FormFeedback type="invalid">{validation.errors.username}</FormFeedback> :
                       null }
                   </div>
                   <div className='mb-3'>
