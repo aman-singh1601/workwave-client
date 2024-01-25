@@ -68,3 +68,6 @@ export const postFakeRegister = (data) => {
       throw message;
     });
 };
+
+
+export const loginuser = (data) => post(url.USER_LOGIN, data);
