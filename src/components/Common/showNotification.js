@@ -6,10 +6,10 @@ const showNotification = (message, type) => {
    
     switch(type) {
       case "error":
-        toast.error(message);
+        toast.error(message,{style:{backgroundColor:'#2a3042',color:"#9099b6"}});
         break;
       default:
-        toast.success(message);
+        toast.success(message,{style:{backgroundColor:'#2a3042',color:"#9099b6"}});
     }
     return <></>
 }
