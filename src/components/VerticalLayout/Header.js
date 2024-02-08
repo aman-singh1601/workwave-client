@@ -11,15 +11,7 @@ import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 // Import menuDropdown
 import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown";
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu";
-import megamenuImg from "../../assets/images/megamenu-img.png";
 
-// import images
-import github from "../../assets/images/brands/github.png";
-import bitbucket from "../../assets/images/brands/bitbucket.png";
-import dribbble from "../../assets/images/brands/dribbble.png";
-import dropbox from "../../assets/images/brands/dropbox.png";
-import mail_chimp from "../../assets/images/brands/mail_chimp.png";
-import slack from "../../assets/images/brands/slack.png";
 
 import logo from "../../assets/images/logo.svg";
 import logoLightSvg from "../../assets/images/logo-light.svg";
@@ -35,8 +27,6 @@ import {
 
 const Header = props => {
   const [search, setsearch] = useState(false);
-  const [megaMenu, setmegaMenu] = useState(false);
-  const [socialDrp, setsocialDrp] = useState(false);
 
   function toggleFullscreen() {
     if (
@@ -117,161 +107,6 @@ const Header = props => {
                 <span className="bx bx-search-alt" />
               </div>
             </form>
-
-            <Dropdown
-              className="dropdown-mega d-none d-lg-block ms-2"
-              isOpen={megaMenu}
-              toggle={() => {
-                setmegaMenu(!megaMenu);
-              }}
-            >
-              <DropdownToggle
-                className="btn header-item "
-                caret
-                tag="button"
-              >
-                {" "}
-                {/* {props.t("Mega Menu")} <i className="mdi mdi-chevron-down" /> */}
-                Mega Menu <i className="mdi mdi-chevron-down" />
-              </DropdownToggle>
-              <DropdownMenu className="dropdown-megamenu">
-                <Row>
-                  <Col sm={8}>
-                    <Row>
-                      <Col md={4}>
-                        <h5 className="font-size-14 mt-0">
-                          {/* {props.t("UI Components")} */}
-                          UI Components
-                        </h5>
-                        <ul className="list-unstyled megamenu-list">
-                          <li>
-                            <Link to="#">Lightbox</Link>
-                            {/* <Link to="#">{props.t("Lightbox")}</Link> */}
-                          </li>
-                          <li>
-                            <Link to="#">{"Range Slider"}</Link>
-                            {/* <Link to="#">{props.t("Range Slider")}</Link> */}
-                          </li>
-                          <li>
-                            <Link to="#">{"Sweet Alert"}</Link>
-                            {/* <Link to="#">{props.t("Sweet Alert")}</Link> */}
-                          </li>
-                          <li>
-                            <Link to="#">{"Rating"}</Link>
-                          </li>
-                          <li>
-                            <Link to="#">{"Forms"}</Link>
-                          </li>
-                          <li>
-                            <Link to="#">{"Tables"}</Link>
-                          </li>
-                          <li>
-                            <Link to="#">{"Charts"}</Link>
-                          </li>
-                        </ul>
-                      </Col>
-
-                      <Col md={4}>
-                        <h5 className="font-size-14 mt-0">
-                          Applications
-                        </h5>
-                        <ul className="list-unstyled megamenu-list">
-                          <li>
-                            <Link to="#">{"Ecommerce"}</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Calendar</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Email</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Projects</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Tasks</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Contacts</Link>
-                          </li>
-                        </ul>
-                      </Col>
-
-                      <Col md={4}>
-                        <h5 className="font-size-14 mt-0">
-                          {"Extra Pages"}
-                        </h5>
-                        <ul className="list-unstyled megamenu-list">
-                          <li>
-                            <Link to="#">Light Sidebar</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Compact Sidebar</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Horizontal layout</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Maintenance</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Coming Soon</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Timeline</Link>
-                          </li>
-                          <li>
-                            <Link to="#">FAQs</Link>
-                          </li>
-                        </ul>
-                      </Col>
-                    </Row>
-                  </Col>
-                  <Col sm={4}>
-                    <Row>
-                      <Col sm={6}>
-                        <h5 className="font-size-14 mt-0">
-                          UI Components
-                        </h5>
-                        <ul className="list-unstyled megamenu-list">
-                          <li>
-                            <Link to="#">Lightbox</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Range Slider</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Sweet Alert</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Rating</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Forms</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Tables</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Charts</Link>
-                          </li>
-                        </ul>
-                      </Col>
-
-                      <Col sm={5}>
-                        <div>
-                          <img
-                            src={megamenuImg}
-                            alt=""
-                            className="img-fluid mx-auto d-block"
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Row>
-              </DropdownMenu>
-            </Dropdown>
           </div>
           <div className="d-flex">
             <div className="dropdown d-inline-block d-lg-none ms-2">
@@ -312,67 +147,6 @@ const Header = props => {
                 </form>
               </div>
             </div>
-
-
-            <Dropdown
-              className="d-none d-lg-inline-block ms-1"
-              isOpen={socialDrp}
-              toggle={() => {
-                setsocialDrp(!socialDrp);
-              }}
-            >
-              <DropdownToggle
-                className="btn header-item noti-icon "
-                tag="button"
-              >
-                <i className="bx bx-customize" />
-              </DropdownToggle>
-              <DropdownMenu className="dropdown-menu-lg dropdown-menu-end">
-                <div className="px-lg-2">
-                  <Row className="no-gutters">
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={github} alt="Github" />
-                        <span>GitHub</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={bitbucket} alt="bitbucket" />
-                        <span>Bitbucket</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={dribbble} alt="dribbble" />
-                        <span>Dribbble</span>
-                      </Link>
-                    </Col>
-                  </Row>
-
-                  <Row className="no-gutters">
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={dropbox} alt="dropbox" />
-                        <span>Dropbox</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={mail_chimp} alt="mail_chimp" />
-                        <span>Mail Chimp</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={slack} alt="slack" />
-                        <span>Slack</span>
-                      </Link>
-                    </Col>
-                  </Row>
-                </div>
-              </DropdownMenu>
-            </Dropdown>
 
             <div className="dropdown d-none d-lg-inline-block ms-1">
               <button
