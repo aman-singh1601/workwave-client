@@ -27,6 +27,7 @@ const showNotification = (message, type) => {
         break;
       default:
         toastr.success(message);
+
     }
     return <></>
 }

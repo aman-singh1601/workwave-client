@@ -24,8 +24,10 @@ import {
   toggleLeftmenu,
   changeSidebarType,
 } from "../../store/actions";
+import withRouter from '../Common/withRouter';
 
 const Header = props => {
+
   const [search, setsearch] = useState(false);
 
   function toggleFullscreen() {
@@ -66,6 +68,7 @@ const Header = props => {
 
   }
 
+
   return (
     <React.Fragment>
       <header id="page-topbar">
@@ -85,7 +88,6 @@ const Header = props => {
                 </span>
               </Link>
             </div>
-
             <button
               type="button"
               onClick={() => {
@@ -147,7 +149,6 @@ const Header = props => {
                 </form>
               </div>
             </div>
-
             <div className="dropdown d-none d-lg-inline-block ms-1">
               <button
                 type="button"
@@ -160,23 +161,8 @@ const Header = props => {
                 <i className="bx bx-fullscreen" />
               </button>
             </div>
-
             <NotificationDropdown />
             <ProfileMenu />
-
-            <div
-               onClick={() => {
-                props.showRightSidebarAction(!props.showRightSidebar);
-              }}
-              className="dropdown d-inline-block"
-            >
-              <button
-                type="button"
-                className="btn header-item noti-icon right-bar-toggle "
-              >
-                <i className="bx bx-cog bx-spin" />
-              </button>
-            </div>
           </div>
         </div>
       </header>
@@ -184,35 +170,4 @@ const Header = props => {
   );
 };
 
-Header.propTypes = {
-  changeSidebarType: PropTypes.func,
-  leftMenu: PropTypes.any,
-  leftSideBarType: PropTypes.any,
-  showRightSidebar: PropTypes.any,
-  showRightSidebarAction: PropTypes.func,
-  t: PropTypes.any,
-  toggleLeftmenu: PropTypes.func
-};
-
-const mapStatetoProps = state => {
-  const {
-    layoutType,
-    showRightSidebar,
-    leftMenu,
-    leftSideBarType,
-  } = {
-     layoutType : "vertical",
- leftMenu : false,
- showRightSidebar : false,
- leftSideBarType : "default",
-  };
-  return { layoutType, showRightSidebar, leftMenu, leftSideBarType };
-};
-
-
-
-export default connect(mapStatetoProps, {
-  showRightSidebarAction,
-  toggleLeftmenu,
-  changeSidebarType,
-})(Header);
+export default withRouter(Header);

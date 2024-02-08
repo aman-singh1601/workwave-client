@@ -11,7 +11,7 @@ function* signupSaga({payload: { user, history }}) {
     try {
     const response = yield call(postFakeRegister,user);
 
-    showNotification(response.message, 'success');
+    showNotification("SignUp Successful", 'success');
 
     localStorage.setItem("authUser", JSON.stringify(response.user_data));
     localStorage.setItem("token", response.token);
