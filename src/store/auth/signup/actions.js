@@ -22,7 +22,7 @@ export const signupUser = (user, history) => {
   }
 
   export const signupFailure = error => {
-   return{ 
+    return{ 
         type: AUTH_FAILURE,
         payload: error,
     }
