@@ -1,4 +1,4 @@
-import { WORKSPACE_FAIL, WORKSPACE_SUCCESS } from "./actions";
+import { WORKSPACE_FAIL, WORKSPACE_SUCCESS } from "./actionTypes";
 
 const INIT = {
     workSpace: null,

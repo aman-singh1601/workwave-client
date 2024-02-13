@@ -1,4 +1,4 @@
-import { CREATE_WORKSPACE, DELETE_WORKSPACE, UPDATE_WORKSPACE, GET_WORKSPACE, GET_WORKSPACES } from "./actiontTypes";
+import { CREATE_WORKSPACE, DELETE_WORKSPACE, UPDATE_WORKSPACE, GET_WORKSPACE, GET_WORKSPACES } from "./actionTypes";
 
 export const createWorkSpace = (data, navigate) => {
     return {

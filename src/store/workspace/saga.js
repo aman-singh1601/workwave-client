@@ -1,5 +1,5 @@
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
-import { CREATE_WORKSPACE, DELETE_WORKSPACE, GET_WORKSPACE, GET_WORKSPACES, UPDATE_WORKSPACE } from "./actiontTypes";
+import { CREATE_WORKSPACE, DELETE_WORKSPACE, GET_WORKSPACE, GET_WORKSPACES, UPDATE_WORKSPACE } from "./actionTypes";
 
 function* createWorkSpace({payload: {data, navigate}}){};
 
