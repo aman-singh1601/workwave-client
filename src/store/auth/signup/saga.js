@@ -11,7 +11,7 @@ function* signupSaga({payload: { user, history }}) {
     try {
     const response = yield call(postFakeRegister,user);
 
-    showNotification(response.message, 'success');
+    showNotification("SignUp Successful", 'success');
 
     localStorage.setItem("authUser", JSON.stringify(response.user_data));
     localStorage.setItem("token", response.token);
@@ -20,14 +20,12 @@ function* signupSaga({payload: { user, history }}) {
     history('/');
     
     } catch (error) {
-      console.log(error);
-     showNotification("SignUp Unsuccessfull", "error");
+     showNotification(error.response.data.detail, "error");
     }
   }
 
   function* loginSaga({payload: { user, history }}) {
     try {
-      console.log(user);
       const response = yield call(loginuser, user);
   
       showNotification(response.message, 'success');
@@ -39,8 +37,7 @@ function* signupSaga({payload: { user, history }}) {
       history('/');
       
       } catch (error) {
-        console.log(error.response);
-       showNotification("Login Unsuccessfull", "error");
+        showNotification(error.response.data.detail, "error");
       }
   }
   function* authSaga(){
