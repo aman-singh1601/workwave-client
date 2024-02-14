@@ -148,20 +148,20 @@ const SidebarContent = props => {
             <li>
               <Link to="/#" className="has-arrow">
                 <i className="bx bx-home-circle"></i>
-                <span>{("Dashboards")}</span>
+                <span>Dashboards</span>
               </Link>
               <ul className="sub-menu">
                 <li>
-                  <Link to="/dashboard">{("Default")}</Link>
+                  <Link to="/dashboard">Default</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard-saas">{("Saas")}</Link>
+                  <Link to="/dashboard-saas">Saas</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard-crypto">{("Crypto")}</Link>
+                  <Link to="/dashboard-crypto">Crypto</Link>
                 </li>
                 <li>
-                  <Link to="/blog">{("Blog")}</Link>
+                  <Link to="/blog">Blog</Link>
                 </li>
                 <li>
                   <Link to="/dashboard-job">

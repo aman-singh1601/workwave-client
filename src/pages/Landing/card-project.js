@@ -18,7 +18,7 @@ const CardProject = ({ projects=[1,2] }) => {
     <React.Fragment>
       {map(projects, (project, key) => (
         <Row className="mx-auto" xl="8" sm="6" key={key}>
-          <Card className="workspace-card mb-0 rounded-0 border-bottom" >
+          <Card className="workspace-card mb-0 rounded-0 border-bottom w-100" >
             <CardBody>
               <div className="d-flex">
                 <div className="avatar-md me-4">
