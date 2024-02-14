@@ -8,8 +8,6 @@ import Project from "../pages/Landing/project";
 
 const AuthProtectedRoutes = [
     {path:'/', component: <Dashboard/>},
-    
-
 ]
 const publicRoutes = [
     {path:'/landing', component: <Project/>},
